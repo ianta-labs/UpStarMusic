@@ -11,6 +11,7 @@ const Artist = require('../models/artist');
  */
 module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
   // The base query //
+  console.log(criteria);
   const query = Artist.find({})
     .sort({ [sortProperty]: 1 })
     .skip(offset)
