@@ -12,7 +12,7 @@ const Artist = require('../models/artist');
 module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
   // The base query //
   console.log(criteria);
-  const query = Artist.find({})
+  const query = Artist.find(buildQuery(criteria))
     .sort({ [sortProperty]: 1 })
     .skip(offset)
     .limit(limit);
@@ -26,4 +26,9 @@ module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
         limit: limit
       }
     })
+};
+
+// function to build the query to be sent to Mongo //
+const buildQuery = (criteria) => {
+
 };
