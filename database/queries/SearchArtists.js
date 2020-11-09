@@ -30,5 +30,14 @@ module.exports = (criteria, sortProperty, offset = 0, limit = 20) => {
 
 // function to build the query to be sent to Mongo //
 const buildQuery = (criteria) => {
+  const query = {};
 
+  if (criteria.age) {
+    query.age = {
+      $gte: criteria.age.min,
+      $lte: criteria.age.max
+    };
+  };
+
+  return query;
 };
